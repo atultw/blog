@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+    </style>
+    <style>
+        .theme_light {
+            --foreground-color: rgb(20, 20, 20);
+            --background-color: rgb(250, 235, 215);
+            --accent-1-color: rgb(0, 102, 255);
+            --accent-2-color: rgb(255, 174, 0);
+        }
+
+        .theme_dark {
+            --foreground-color: rgb(255, 255, 255);
+            --background-color: rgb(36, 36, 36);
+            --accent-1-color: rgb(0, 153, 255);
+            --accent-2-color: rgb(0, 255, 136);
+        }
+
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+            background-color: var(--background-color);
+        }
+
+        #root {
+            /* background-color: antiquewhite; */
+            font-family: "IBM Plex Sans", Verdana, Geneva, Tahoma, sans-serif;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(min(600px, 1vw), 600px) minmax(0, 1fr);
+            grid-template-rows: minmax(50px, 100px) 1fr;
+        }
+
+        #content {
+            grid-row: 2;
+            grid-column: 2;
+        }
+
+        #menubar {
+            grid-row: 1;
+            grid-column: 2;
+        }
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            border-radius: 10px;
+        }
+
+        p {
+            color: var(--foreground-color);
+            font-size: 12pt;
+            line-height: 1.5rem;
+
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Blocks */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Text */
+        a {
+            padding: 3px;
+            border-radius: 5px;
+        }
+
+        a:visited {
+            color: rgb(247, 0, 255);
+        }
+
+        a:link {
+            color: rgb(0, 174, 255)
+        }
+
+        a:hover {
+            background-color: rgb(0, 174, 255);
+            color: var(--foreground-color);
+        }
+    </style>
+
+    <!-- PrismJS Theme -->
+    <style>
+        /**
+ * MIT License
+ * Copyright (c) 2018 Sarah Drasner
+ * Sarah Drasner's[@sdras] Night Owl
+ * Ported by Sara vieria [@SaraVieira]
+ * Added by Souvik Mandal [@SimpleIndian]
+ */
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: #d6deeb;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+            font-size: 1em;
+
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        pre[class*="language-"]::-moz-selection,
+        pre[class*="language-"] ::-moz-selection,
+        code[class*="language-"]::-moz-selection,
+        code[class*="language-"] ::-moz-selection {
+            text-shadow: none;
+            background: rgba(29, 59, 83, 0.99);
+        }
+
+        pre[class*="language-"]::selection,
+        pre[class*="language-"] ::selection,
+        code[class*="language-"]::selection,
+        code[class*="language-"] ::selection {
+            text-shadow: none;
+            background: rgba(29, 59, 83, 0.99);
+        }
+
+        @media print {
+
+            code[class*="language-"],
+            pre[class*="language-"] {
+                text-shadow: none;
+            }
+        }
+
+        /* Code blocks */
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: 0.5em 0;
+            overflow: auto;
+        }
+
+        :not(pre)>code[class*="language-"],
+        pre[class*="language-"] {
+            color: white;
+            background: #011627;
+        }
+
+        :not(pre)>code[class*="language-"] {
+            padding: 0.1em;
+            border-radius: 0.3em;
+            white-space: normal;
+        }
+
+        .token.comment,
+        .token.prolog,
+        .token.cdata {
+            color: rgb(99, 119, 119);
+            font-style: italic;
+        }
+
+        .token.punctuation {
+            color: rgb(199, 146, 234);
+        }
+
+        .namespace {
+            color: rgb(178, 204, 214);
+        }
+
+        .token.deleted {
+            color: rgba(239, 83, 80, 0.56);
+            font-style: italic;
+        }
+
+        .token.symbol,
+        .token.property {
+            color: rgb(128, 203, 196);
+        }
+
+        .token.tag,
+        .token.operator,
+        .token.keyword {
+            color: rgb(127, 219, 202);
+        }
+
+        .token.boolean {
+            color: rgb(255, 88, 116);
+        }
+
+        .token.number {
+            color: rgb(247, 140, 108);
+        }
+
+        .token.constant,
+        .token.function,
+        .token.builtin,
+        .token.char {
+            color: rgb(130, 170, 255);
+        }
+
+        .token.selector,
+        .token.doctype {
+            color: rgb(199, 146, 234);
+            font-style: italic;
+        }
+
+        .token.attr-name,
+        .token.inserted {
+            color: rgb(173, 219, 103);
+            font-style: italic;
+        }
+
+        .token.string,
+        .token.url,
+        .token.entity,
+        .language-css .token.string,
+        .style .token.string {
+            color: rgb(173, 219, 103);
+        }
+
+        .token.class-name,
+        .token.atrule,
+        .token.attr-value {
+            color: rgb(255, 203, 139);
+        }
+
+        .token.regex,
+        .token.important,
+        .token.variable {
+            color: rgb(214, 222, 235);
+        }
+
+        .token.important,
+        .token.bold {
+            font-weight: bold;
+        }
+
+        .token.italic {
+            font-style: italic;
+        }
+    </style>
+
+    <script>
+        // initial
+        if (window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setThemeDark()
+        } else {
+            setThemeLight()
+        }
+
+        function setThemeDark() {
+            document.querySelector("#root").classList.add("dark")
+        }
+
+        function setThemeLight() {
+            document.querySelector("#root").classList.add("light")
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="root">
+        <div id="menubar"></div>
+        <div id="content">
+            <h1>{{ title }}</h1>
+            <h3>{{ description }}</h3>
+            <span><i>{{ author }}</i></span><br>
+            <span><i>{{ page.date | readableDate }}</i></span><br>
+
+            {% block content %}
+            <article>
+                {{ content | safe }}
+            </article>
+            {% endblock %}
+        </div>
+        <div id="e"></div>
+
+    </div>
+
+</body>
+
+</html>
