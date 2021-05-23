@@ -9,14 +9,14 @@
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
     </style>
     <style>
-        .theme_light {
+        .theme-light {
             --foreground-color: rgb(20, 20, 20);
             --background-color: rgb(250, 235, 215);
             --accent-1-color: rgb(0, 102, 255);
             --accent-2-color: rgb(255, 174, 0);
         }
 
-        .theme_dark {
+        .theme-dark {
             --foreground-color: rgb(255, 255, 255);
             --background-color: rgb(36, 36, 36);
             --accent-1-color: rgb(0, 153, 255);
@@ -25,13 +25,14 @@
 
         body,
         html {
+            background-color: var(--background-color);
             padding: 0;
             margin: 0;
-            background-color: var(--background-color);
         }
 
         #root {
-            /* background-color: antiquewhite; */
+            background-color: var(--background-color);
+            color: var(--foreground-color);
             font-family: "IBM Plex Sans", Verdana, Geneva, Tahoma, sans-serif;
             width: 100%;
             height: 100%;
@@ -58,7 +59,6 @@
         }
 
         p {
-            color: var(--foreground-color);
             font-size: 12pt;
             line-height: 1.5rem;
 
@@ -253,25 +253,6 @@
             font-style: italic;
         }
     </style>
-
-    <script>
-        // initial
-        if (window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setThemeDark()
-        } else {
-            setThemeLight()
-        }
-
-        function setThemeDark() {
-            document.querySelector("#root").classList.add("dark")
-        }
-
-        function setThemeLight() {
-            document.querySelector("#root").classList.add("light")
-        }
-
-    </script>
 </head>
 
 <body>
@@ -293,6 +274,26 @@
 
     </div>
 
+
+    <!-- scripts -->
+    <script>
+        // initial
+        if (window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setThemeDark()
+        } else {
+            setThemeLight()
+        }
+
+        function setThemeDark() {
+            document.querySelector("#root").classList.add("theme-dark")
+        }
+
+        function setThemeLight() {
+            document.querySelector("#root").classList.add("theme-light")
+        }
+
+    </script>
 </body>
 
 </html>
