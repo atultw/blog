@@ -1,105 +1,157 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>{{ title }}</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
     </style>
     <style>
-        .theme-light {
-            --foreground-color: rgb(20, 20, 20);
-            --background-color: rgb(250, 235, 215);
-            --accent-1-color: rgb(0, 102, 255);
-            --accent-2-color: rgb(255, 174, 0);
-        }
+      .theme-light {
+        --foreground-color: rgb(20, 20, 20);
+        --background-color: rgb(250, 235, 215);
+        --accent-1-color: rgb(0, 102, 255);
+        --accent-2-color: rgb(255, 174, 0);
+      }
 
-        .theme-dark {
-            --foreground-color: rgb(255, 255, 255);
-            --background-color: rgb(36, 36, 36);
-            --accent-1-color: rgb(0, 153, 255);
-            --accent-2-color: rgb(0, 255, 136);
-        }
+      .theme-dark {
+        --foreground-color: rgb(255, 255, 255);
+        --background-color: rgb(36, 36, 36);
+        --accent-1-color: rgb(0, 153, 255);
+        --accent-2-color: rgb(0, 255, 136);
+      }
 
-        body,
-        html {
-            background-color: var(--background-color);
-            padding: 0;
-            margin: 0;
-        }
+      body,
+      html {
+        background-color: var(--background-color);
+        padding: 0;
+        margin: 0;
+      }
 
-        #root {
-            background-color: var(--background-color);
-            color: var(--foreground-color);
-            font-family: "IBM Plex Sans", Verdana, Geneva, Tahoma, sans-serif;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(min(600px, 1vw), 600px) minmax(0, 1fr);
-            grid-template-rows: minmax(50px, 100px) 1fr;
-        }
+      #root {
+        background-color: var(--background-color);
+        color: var(--foreground-color);
+        font-family: "IBM Plex Sans", Verdana, Geneva, Tahoma, sans-serif;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(min(600px, 1vw), 600px) minmax(
+            0,
+            1fr
+          );
+        grid-template-rows: minmax(50px, 100px) 1fr;
+      }
 
-        #content {
-            grid-row: 2;
-            grid-column: 2;
-        }
+      #content {
+        grid-row: 2;
+        grid-column: 2;
+        padding: 1rem;
+      }
 
-        #menubar {
-            grid-row: 1;
-            grid-column: 2;
-        }
+      #menubar {
+        grid-row: 1;
+        grid-column: 2;
 
-        code[class*="language-"],
-        pre[class*="language-"] {
-            display: block;
-            font-family: 'JetBrains Mono', monospace;
-            border-radius: 10px;
-        }
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+      }
 
-        p {
-            font-size: 12pt;
-            line-height: 1.5rem;
+      code[class*="language-"],
+      pre[class*="language-"] {
+        display: block;
+        font-family: "JetBrains Mono", monospace;
+        border-radius: 10px;
+      }
 
-            max-width: 100%;
-            max-height: 100%;
-        }
+      p {
+        font-size: 12pt;
+        line-height: 1.5rem;
 
-        /* Blocks */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
+        max-width: 100%;
+        max-height: 100%;
+      }
 
-        /* Text */
+      /* Blocks */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
 
-        h1 {
-            font-size: 30pt;
-        }
+      .menu-item {
+        display: inline-block;
+        padding: 10px;
+      }
 
-        a {
-            padding: 3px;
-            border-radius: 5px;
-        }
+      /* Text */
 
-        a:visited {
-            color: rgb(247, 0, 255);
-        }
+      h1 {
+        font-size: 30pt;
+      }
 
-        a:link {
-            color: rgb(0, 174, 255)
-        }
+      a {
+        padding: 3px;
+        border-radius: 5px;
+      }
 
-        a:hover {
-            background-color: rgb(0, 174, 255);
-            color: var(--foreground-color);
-        }
+      a:visited {
+        color: rgb(247, 0, 255);
+      }
+
+      a:link {
+        color: rgb(0, 174, 255);
+      }
+
+      a:hover {
+        background-color: rgb(0, 174, 255);
+        color: var(--foreground-color);
+      }
+
+      /* dark mode toggle */
+      #ui-mode-toggle {
+        width: 40pt;
+        height: 20pt;
+        display: block;
+        background: gray;
+        border-radius: 20pt;
+      }
+
+      #ui-mode-selector {
+        display: inline-flex;
+        width: 20pt;
+        height: 20pt;
+        border-radius: 20pt;
+        box-shadow: 0px 0px 18px -5px rgba(0, 0, 0, 0.75);
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .selector-dark {
+        background: black;
+      }
+
+      .selector-light {
+        transform: translateX(20pt);
+        background: yellow;
+      }
+
+      .selector-dark::before {
+        position: absolute;
+        content: "🌙";
+      }
+
+      .selector-light::before {
+        position: absolute;
+        content: "🔆";
+      }
     </style>
 
     <!-- PrismJS Theme -->
     <style>
-        /**
+      /**
  * MIT License
  * Copyright (c) 2018 Sarah Drasner
  * Sarah Drasner's[@sdras] Night Owl
@@ -107,198 +159,216 @@
  * Added by Souvik Mandal [@SimpleIndian]
  */
 
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #d6deeb;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+        font-size: 1em;
+
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+
+      pre[class*="language-"]::-moz-selection,
+      pre[class*="language-"] ::-moz-selection,
+      code[class*="language-"]::-moz-selection,
+      code[class*="language-"] ::-moz-selection {
+        text-shadow: none;
+        background: rgba(29, 59, 83, 0.99);
+      }
+
+      pre[class*="language-"]::selection,
+      pre[class*="language-"] ::selection,
+      code[class*="language-"]::selection,
+      code[class*="language-"] ::selection {
+        text-shadow: none;
+        background: rgba(29, 59, 83, 0.99);
+      }
+
+      @media print {
         code[class*="language-"],
         pre[class*="language-"] {
-            color: #d6deeb;
-            text-align: left;
-            white-space: pre;
-            word-spacing: normal;
-            word-break: normal;
-            word-wrap: normal;
-            line-height: 1.5;
-            font-size: 1em;
-
-            -moz-tab-size: 4;
-            -o-tab-size: 4;
-            tab-size: 4;
-
-            -webkit-hyphens: none;
-            -moz-hyphens: none;
-            -ms-hyphens: none;
-            hyphens: none;
+          text-shadow: none;
         }
+      }
 
-        pre[class*="language-"]::-moz-selection,
-        pre[class*="language-"] ::-moz-selection,
-        code[class*="language-"]::-moz-selection,
-        code[class*="language-"] ::-moz-selection {
-            text-shadow: none;
-            background: rgba(29, 59, 83, 0.99);
-        }
+      /* Code blocks */
+      pre[class*="language-"] {
+        padding: 1em;
+        margin: 0.5em 0;
+        overflow: auto;
+      }
 
-        pre[class*="language-"]::selection,
-        pre[class*="language-"] ::selection,
-        code[class*="language-"]::selection,
-        code[class*="language-"] ::selection {
-            text-shadow: none;
-            background: rgba(29, 59, 83, 0.99);
-        }
+      :not(pre) > code[class*="language-"],
+      pre[class*="language-"] {
+        color: white;
+        background: #011627;
+      }
 
-        @media print {
+      :not(pre) > code[class*="language-"] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+      }
 
-            code[class*="language-"],
-            pre[class*="language-"] {
-                text-shadow: none;
-            }
-        }
+      .token.comment,
+      .token.prolog,
+      .token.cdata {
+        color: rgb(99, 119, 119);
+        font-style: italic;
+      }
 
-        /* Code blocks */
-        pre[class*="language-"] {
-            padding: 1em;
-            margin: 0.5em 0;
-            overflow: auto;
-        }
+      .token.punctuation {
+        color: rgb(199, 146, 234);
+      }
 
-        :not(pre)>code[class*="language-"],
-        pre[class*="language-"] {
-            color: white;
-            background: #011627;
-        }
+      .namespace {
+        color: rgb(178, 204, 214);
+      }
 
-        :not(pre)>code[class*="language-"] {
-            padding: 0.1em;
-            border-radius: 0.3em;
-            white-space: normal;
-        }
+      .token.deleted {
+        color: rgba(239, 83, 80, 0.56);
+        font-style: italic;
+      }
 
-        .token.comment,
-        .token.prolog,
-        .token.cdata {
-            color: rgb(99, 119, 119);
-            font-style: italic;
-        }
+      .token.symbol,
+      .token.property {
+        color: rgb(128, 203, 196);
+      }
 
-        .token.punctuation {
-            color: rgb(199, 146, 234);
-        }
+      .token.tag,
+      .token.operator,
+      .token.keyword {
+        color: rgb(127, 219, 202);
+      }
 
-        .namespace {
-            color: rgb(178, 204, 214);
-        }
+      .token.boolean {
+        color: rgb(255, 88, 116);
+      }
 
-        .token.deleted {
-            color: rgba(239, 83, 80, 0.56);
-            font-style: italic;
-        }
+      .token.number {
+        color: rgb(247, 140, 108);
+      }
 
-        .token.symbol,
-        .token.property {
-            color: rgb(128, 203, 196);
-        }
+      .token.constant,
+      .token.function,
+      .token.builtin,
+      .token.char {
+        color: rgb(130, 170, 255);
+      }
 
-        .token.tag,
-        .token.operator,
-        .token.keyword {
-            color: rgb(127, 219, 202);
-        }
+      .token.selector,
+      .token.doctype {
+        color: rgb(199, 146, 234);
+        font-style: italic;
+      }
 
-        .token.boolean {
-            color: rgb(255, 88, 116);
-        }
+      .token.attr-name,
+      .token.inserted {
+        color: rgb(173, 219, 103);
+        font-style: italic;
+      }
 
-        .token.number {
-            color: rgb(247, 140, 108);
-        }
+      .token.string,
+      .token.url,
+      .token.entity,
+      .language-css .token.string,
+      .style .token.string {
+        color: rgb(173, 219, 103);
+      }
 
-        .token.constant,
-        .token.function,
-        .token.builtin,
-        .token.char {
-            color: rgb(130, 170, 255);
-        }
+      .token.class-name,
+      .token.atrule,
+      .token.attr-value {
+        color: rgb(255, 203, 139);
+      }
 
-        .token.selector,
-        .token.doctype {
-            color: rgb(199, 146, 234);
-            font-style: italic;
-        }
+      .token.regex,
+      .token.important,
+      .token.variable {
+        color: rgb(214, 222, 235);
+      }
 
-        .token.attr-name,
-        .token.inserted {
-            color: rgb(173, 219, 103);
-            font-style: italic;
-        }
+      .token.important,
+      .token.bold {
+        font-weight: bold;
+      }
 
-        .token.string,
-        .token.url,
-        .token.entity,
-        .language-css .token.string,
-        .style .token.string {
-            color: rgb(173, 219, 103);
-        }
-
-        .token.class-name,
-        .token.atrule,
-        .token.attr-value {
-            color: rgb(255, 203, 139);
-        }
-
-        .token.regex,
-        .token.important,
-        .token.variable {
-            color: rgb(214, 222, 235);
-        }
-
-        .token.important,
-        .token.bold {
-            font-weight: bold;
-        }
-
-        .token.italic {
-            font-style: italic;
-        }
+      .token.italic {
+        font-style: italic;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="root">
-        <div id="menubar"></div>
-        <div id="content">
-            <h1>{{ title }}</h1>
-            <h3>{{ description }}</h3>
-            <span><i>{{ author }}</i></span><br>
-            <span><i>{{ page.date | readableDate }}</i></span><br>
+      <div id="menubar">
+        <span class="menu-item">Home</span>
+        <span class="menu-item">
+          <span id="ui-mode-toggle">
+            <div id="ui-mode-selector"></div>
+            <!-- <div id="selector-light"></div>     -->
+          </span>
+        </span>
+      </div>
+      <div id="content">
+        <h1>{{ title }}</h1>
+        <h3>{{ description }}</h3>
+        <span><i>{{ author }}</i></span
+        ><br />
+        <span><i>{{ page.date | readableDate }}</i></span
+        ><br />
 
-            {% block content %}
-            <article>
-                {{ content | safe }}
-            </article>
-            {% endblock %}
-        </div>
-        <div id="e"></div>
-
+        {% block content %}
+        <article>{{ content | safe }}</article>
+        {% endblock %}
+      </div>
+      <div id="e"></div>
     </div>
-
 
     <!-- scripts -->
     <script>
-        // initial
-        if (window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setThemeDark()
-        } else {
-            setThemeLight()
-        }
+      // initial
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        themeDark(true)
+      } else {
+        themeDark(false)
+      }
 
-        function setThemeDark() {
-            document.querySelector("#root").classList.add("theme-dark")
-        }
+      function addListeners() {
+        document.querySelector(".selector-dark")[0].onclick = () => {
+          themeDark(true);
+        };
+        document.querySelector(".selector-light")[0].onclick = () => {
+          themeDark(false)
+        };
+      }
 
-        function setThemeLight() {
-            document.querySelector("#root").classList.add("theme-light")
-        }
-
+      function themeDark(t) {
+        document.querySelector("#root").classList.remove(t ? "theme-light" : "theme-dark");
+        document.querySelector("#root").classList.add(t ? "theme-dark" : "theme-light");
+        document
+          .querySelector("#ui-mode-selector")
+          .classList.remove(t ? "selector-light" : "selector-dark");
+        document
+          .querySelector("#ui-mode-selector")
+          .classList.add(t ? "selector-dark" : "selector-light");
+        document.querySelector("#ui-mode-selector").onclick = t ? () => {themeDark(false)} : () => {themeDark(true)};
+      }
     </script>
-</body>
-
+  </body>
 </html>
