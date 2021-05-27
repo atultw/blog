@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: The Quick Brown Fox
+title: Lorem
 author: Atulya Weise
 description: The quick brown fox jumped over the lazy dog. Lorem ipsum dolor sit amet.
 ---
