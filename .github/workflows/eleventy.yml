@@ -5,6 +5,7 @@ jobs:
   build_deploy:
     runs-on: ubuntu-20.04
     steps:
+      - name: Prepare
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
@@ -12,6 +13,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Build
         uses: TartanLlama/actions-eleventy@v1.1
+        with: 
+            install_dependencies: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v1.1.0
         env:
