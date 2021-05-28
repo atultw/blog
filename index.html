@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+    </style>
+    <style>
+        .theme-light {
+            --foreground-color: rgb(20, 20, 20);
+            --background-color: rgb(250, 235, 215);
+            --accent-1-color: rgb(0, 102, 255);
+            --accent-2-color: rgb(255, 174, 0);
+        }
+
+        .theme-dark {
+            --foreground-color: rgb(255, 255, 255);
+            --background-color: rgb(36, 36, 36);
+            --accent-1-color: rgb(0, 153, 255);
+            --accent-2-color: rgb(0, 255, 136);
+        }
+
+        body,
+        html {
+            background-color: var(--background-color);
+            padding: 0;
+            margin: 0;
+        }
+
+        #root {
+            background-color: var(--background-color);
+            color: var(--foreground-color);
+            font-family: "IBM Plex Sans", Verdana, Geneva, Tahoma, sans-serif;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(min(600px, 1vw), 600px) minmax(0,
+                    1fr);
+            grid-template-rows: minmax(50px, 100px) 1fr;
+            min-height: 100vh;
+        }
+
+        #content {
+            grid-row: 2;
+            grid-column: 2;
+            padding: 1rem;
+        }
+
+        #menubar {
+            grid-row: 1;
+            grid-column: 2;
+
+            display: flex;
+            padding: 0.5rem;
+            align-items: flex-end;
+        }
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            display: block;
+            font-family: "JetBrains Mono", monospace;
+            border-radius: 10px;
+        }
+
+        p {
+            font-size: 12pt;
+            line-height: 1.5rem;
+
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #menubar a,
+        #menubar a:visited {
+            text-decoration: none;
+            color: var(--foreground-color);
+        }
+
+
+        /* Blocks */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0.5rem;
+            height: 20pt;
+            line-height: 10pt;
+        }
+
+        .menu-item>h2 {
+            /* line-height is to fix baseline issue */
+            line-height: 15pt;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Text */
+
+        h1 {
+            font-size: 30pt;
+        }
+
+        #content a {
+            padding: 3px;
+            border-radius: 5px;
+            color: var(--foreground-color);
+        }
+
+        #content a:visited {
+            color: rgb(247, 0, 255);
+        }
+
+        #content a:link {
+            color: rgb(0, 174, 255);
+        }
+
+        #content a:hover {
+            background-color: var(--accent-1-color)
+        }
+
+        /* dark mode toggle */
+        #ui-mode-toggle {
+            width: 40pt;
+            height: 20pt;
+            display: block;
+            background: gray;
+            border-radius: 20pt;
+        }
+
+        #ui-mode-selector {
+            display: inline-flex;
+            width: 20pt;
+            height: 20pt;
+            border-radius: 20pt;
+            box-shadow: 0px 0px 18px -5px rgba(0, 0, 0, 0.75);
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selector-dark {
+            background: black;
+        }
+
+        .selector-light {
+            transform: translateX(20pt);
+            background: yellow;
+        }
+
+        .selector-dark::before {
+            position: absolute;
+            content: "🌙";
+        }
+
+        .selector-light::before {
+            position: absolute;
+            content: "🔆";
+        }
+    </style>
+
+    <!-- PrismJS Theme -->
+    <style>
+        /**
+ * MIT License
+ * Copyright (c) 2018 Sarah Drasner
+ * Sarah Drasner's[@sdras] Night Owl
+ * Ported by Sara vieria [@SaraVieira]
+ * Added by Souvik Mandal [@SimpleIndian]
+ */
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: #d6deeb;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+            font-size: 1em;
+
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        pre[class*="language-"]::-moz-selection,
+        pre[class*="language-"] ::-moz-selection,
+        code[class*="language-"]::-moz-selection,
+        code[class*="language-"] ::-moz-selection {
+            text-shadow: none;
+            background: rgba(29, 59, 83, 0.99);
+        }
+
+        pre[class*="language-"]::selection,
+        pre[class*="language-"] ::selection,
+        code[class*="language-"]::selection,
+        code[class*="language-"] ::selection {
+            text-shadow: none;
+            background: rgba(29, 59, 83, 0.99);
+        }
+
+        @media print {
+
+            code[class*="language-"],
+            pre[class*="language-"] {
+                text-shadow: none;
+            }
+        }
+
+        /* Code blocks */
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: 0.5em 0;
+            overflow: auto;
+        }
+
+        :not(pre)>code[class*="language-"],
+        pre[class*="language-"] {
+            color: white;
+            background: #011627;
+        }
+
+        :not(pre)>code[class*="language-"] {
+            padding: 0.1em;
+            border-radius: 0.3em;
+            white-space: normal;
+        }
+
+        .token.comment,
+        .token.prolog,
+        .token.cdata {
+            color: rgb(99, 119, 119);
+            font-style: italic;
+        }
+
+        .token.punctuation {
+            color: rgb(199, 146, 234);
+        }
+
+        .namespace {
+            color: rgb(178, 204, 214);
+        }
+
+        .token.deleted {
+            color: rgba(239, 83, 80, 0.56);
+            font-style: italic;
+        }
+
+        .token.symbol,
+        .token.property {
+            color: rgb(128, 203, 196);
+        }
+
+        .token.tag,
+        .token.operator,
+        .token.keyword {
+            color: rgb(127, 219, 202);
+        }
+
+        .token.boolean {
+            color: rgb(255, 88, 116);
+        }
+
+        .token.number {
+            color: rgb(247, 140, 108);
+        }
+
+        .token.constant,
+        .token.function,
+        .token.builtin,
+        .token.char {
+            color: rgb(130, 170, 255);
+        }
+
+        .token.selector,
+        .token.doctype {
+            color: rgb(199, 146, 234);
+            font-style: italic;
+        }
+
+        .token.attr-name,
+        .token.inserted {
+            color: rgb(173, 219, 103);
+            font-style: italic;
+        }
+
+        .token.string,
+        .token.url,
+        .token.entity,
+        .language-css .token.string,
+        .style .token.string {
+            color: rgb(173, 219, 103);
+        }
+
+        .token.class-name,
+        .token.atrule,
+        .token.attr-value {
+            color: rgb(255, 203, 139);
+        }
+
+        .token.regex,
+        .token.important,
+        .token.variable {
+            color: rgb(214, 222, 235);
+        }
+
+        .token.important,
+        .token.bold {
+            font-weight: bold;
+        }
+
+        .token.italic {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div id="menubar">
+            <span class="menu-item">
+                <h2>Atulya Weise</h2>
+            </span>
+            <span class="menu-item"><a href="TODO update">Coding</a></span>
+            <span class="menu-item"><a href="TODO update">Photography</a></span>
+            <span class="menu-item"><a href="TODO update">Life</a></span>
+            <span class="menu-item" style="margin-left: auto">
+                <span id="ui-mode-toggle">
+                    <div id="ui-mode-selector"></div>
+                </span>
+            </span>
+        </div>
+        <div id="content">
+            <div>
+    <h1><a href="/first copy 2/">Dolor</a></h1>
+    <span><i>28 May 2021</i></span><br />
+    <p></p>
+</div><div>
+    <h1><a href="/first copy 3/">Ipsum</a></h1>
+    <span><i>28 May 2021</i></span><br />
+    <p></p>
+</div><div>
+    <h1><a href="/first copy 4/">Lorem</a></h1>
+    <span><i>28 May 2021</i></span><br />
+    <p></p>
+</div><div>
+    <h1><a href="/first copy/">sit amet</a></h1>
+    <span><i>28 May 2021</i></span><br />
+    <p></p>
+</div><div>
+    <h1><a href="/first/">The Quick Brown Fox</a></h1>
+    <span><i>28 May 2021</i></span><br />
+    <p></p>
+</div><div>
+    <h1><a href="/"></a></h1>
+    <span><i>28 May 2021</i></span><br />
+    <p></p>
+</div>
+        </div>
+        <div id="e"></div>
+    </div>
+
+    <!-- scripts -->
+    <script>
+        // initial
+        if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+            themeDark(true)
+        } else {
+            themeDark(false)
+        }
+
+        function themeDark(t) {
+            document.querySelector("#root").classList.remove(t ? "theme-light" : "theme-dark");
+            document.querySelector("#root").classList.add(t ? "theme-dark" : "theme-light");
+            document
+                .querySelector("#ui-mode-selector")
+                .classList.remove(t ? "selector-light" : "selector-dark");
+            document
+                .querySelector("#ui-mode-selector")
+                .classList.add(t ? "selector-dark" : "selector-light");
+            document.querySelector("#ui-mode-selector").onclick = t ? () => { themeDark(false) } : () => { themeDark(true) };
+        }
+    </script>
+</body>
+
+</html>
