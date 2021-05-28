@@ -6,10 +6,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
-      - name: Build
+      - run: npm install @11ty/eleventy-plugin-syntaxhighlight
+      - name: Build     
         uses: TartanLlama/actions-eleventy@v1.1
-        with: 
-            install_dependencies: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v1.1.0
         env:
