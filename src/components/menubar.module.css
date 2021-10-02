@@ -1,0 +1,59 @@
+/* dark mode toggle */
+#ui-mode-toggle {
+  width: 40pt;
+  height: 20pt;
+  display: block;
+  background: gray;
+  border-radius: 20pt;
+}
+#ui-mode-selector {
+  display: inline-flex;
+  width: 20pt;
+  height: 20pt;
+  border-radius: 20pt;
+  box-shadow: 0px 0px 18px -5px rgba(0, 0, 0, 0.75);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.selector-dark {
+  background: black;
+}
+.selector-light {
+  transform: translateX(20pt);
+  background: yellow;
+}
+.selector-dark::before {
+  position: absolute;
+  content: "🌙";
+}
+.selector-light::before {
+  position: absolute;
+  content: "🔆";
+}
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+  height: 20pt;
+  line-height: 10pt;
+}
+.menu-item > h1 {
+  /* line-height is to fix baseline issue */
+  line-height: 15pt;
+  padding: 0;
+  margin: 0;
+}
+#menubar {
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  padding: 0.5rem;
+  align-items: flex-end;
+}
+#menubar a,
+#menubar a:visited {
+  text-decoration: none;
+  color: var(--foreground-color);
+}
