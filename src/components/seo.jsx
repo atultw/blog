@@ -51,6 +51,10 @@ const Seo = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: "https://atulya.me/gradient.png",
+        },
+        {
           property: `og:type`,
           content: `website`,
         },

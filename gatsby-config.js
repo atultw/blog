@@ -4,7 +4,7 @@ module.exports = {
     author: {
       summary: `I'm Atulya, a full-stack hobby programmer currently writing Swift for iOS and Go on the backend`,
     },
-    description: `On this site I write about interesting things I find while coding.`,
+    description: `Writings about cool coding stuff I come across`,
     siteUrl: `https://blog.atulya.me`,
     social: {
       github: `atultw`,
@@ -115,7 +115,7 @@ module.exports = {
         short_name: `blogtest`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#49a0de`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },

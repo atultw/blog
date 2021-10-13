@@ -99,12 +99,12 @@ to ContentView.swift
 
 replace the content of body with: 
 ```swift
-        Text(Greeting().greeting())
-            .padding()
-        Text(Greeting().introduceMe())
-            .onAppear {
-                Platform().sayHi()
-            }
+Text(Greeting().greeting())
+    .padding()
+Text(Greeting().introduceMe())
+    .onAppear {
+        Platform().sayHi()
+    }
 ```
 
 
