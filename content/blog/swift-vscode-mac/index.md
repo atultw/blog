@@ -26,7 +26,7 @@ This builds the vsix plugin for VScode.
 If you encounter an error here, make sure all the prerequisites are installed and that you ran npm install. 
 
 # Installing the plugin
-5. code --install-extension sourcekit-lsp-development.vsix
+5. `code --install-extension sourcekit-lsp-development.vsix`
 
 Installs the plugin.
 
