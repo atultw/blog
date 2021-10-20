@@ -39,7 +39,7 @@ html {
 
 code[class*="language-"],
 pre[class*="language-"] {
-  display: block;
+  /* display: block; */
   font-family: "JetBrains Mono", monospace;
   border-radius: 10px;
 }

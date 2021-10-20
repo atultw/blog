@@ -9,17 +9,17 @@ I'm starting a server-side Swift project, so I wanted to see how Swift works wit
 This guide is written for Mac users. It will also work on Linux but you need to get SourceKit-lsp separately first (https://swift.org/download). I will be writing an article on that soon!
 
 # Prerequisites
-[VSCode](https://code.visualstudio.com) 
-Sourcekit LSP - Component of Xcode on mac or Swift toolchain on linux
-[NodeJS and npm](https://nodejs.org/en/download/)
+* [VSCode](https://code.visualstudio.com) 
+* Sourcekit LSP - Component of Xcode on mac or Swift toolchain on linux
+* [NodeJS and npm](https://nodejs.org/en/download/)
 
-Sourcekit LSP is the language server that runs in the background. Check that it's installed by running `sourckit-lsp`. There should be no output meaning it works. ctrl+c to exit.
+Sourcekit LSP is the language server that runs in the background. Check that it's installed by running `sourcekit-lsp`. There should be no output meaning it works. ctrl+c to exit.
 
 # Building the plugin
-1. git clone https://github.com/apple/sourcekit-lsp.git
-2. cd sourcekit-lsp/Editors/vscode/
-3. npm install
-4. npm run dev-package
+1. `git clone https://github.com/apple/sourcekit-lsp.git`
+2. `cd sourcekit-lsp/Editors/vscode/`
+3. `npm install`
+4. `npm run dev-package`
 
 This builds the vsix plugin for VScode.
 
