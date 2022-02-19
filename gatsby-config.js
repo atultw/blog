@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Atulya Weise`,
+    title: `atultw`,
     author: {
-      summary: `I'm Atulya, a full-stack hobby programmer currently writing Swift for iOS and Go on the backend`,
+      summary: `I'm Atulya, a full-stack hobby programmer currently writing Swift for iOS and Go on the backend. Find me on github @atultw`,
     },
-    description: `Writings about cool coding stuff I come across`,
-    siteUrl: `https://blog.atulya.me`,
+    description: `Writing about cool coding stuff I come across`,
+    siteUrl: `https://atulya.me`,
     social: {
       github: `atultw`,
     },

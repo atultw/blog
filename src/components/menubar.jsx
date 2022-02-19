@@ -33,7 +33,7 @@ export class MenuBar extends React.Component {
         return (
             <div id={Styles.menubar}>
                 <span className={Styles.menuItem}>
-                    <h1><a href="/">Atulya Weise</a></h1>
+                    <h1><a href="/">atultw</a></h1>
                 </span>
                 <div style={{ marginLeft: "auto", display: "flex", alignItems: "flex-end" }}>
                     <span className={Styles.menuItem}><Link to="/tags/swift">Swift</Link></span>
