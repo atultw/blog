@@ -4,8 +4,10 @@ date: "2022-02-18"
 tags: ["productivity"]
 ---
 
-There are generally two types of questions on SO (and other Q&A sites)
-; `how to ___`
+**tl;dr type out your SO question even if you won't post it. You may notice something you had overlooked that solves
+your issue.**
+
+There are generally two types of questions on SO (and other Q&A sites): `how to ___`
 and `___ is not working, help`. This article is about the latter.
 
 You know how to do something, it's just not working as it should. If all the StackOverflow answers aren't helping, go
@@ -26,8 +28,8 @@ in writing, reproducible example and all, I realized I had forgotten to call a f
 **More often than not, I end up solving the issue myself and the question never gets posted.**
 
 Of course this is just one of many strategies, after debugging you can also write a minimum reproducible example to
-isolate the issue. I noticed something similar when proposing features on OSS projects - I throw out my idea before it
-gets posted. While writing how it could be implemented or considering the side effects I realize it's not feasible. All
-things you don't realize before you start typing it out!
+isolate the issue. I've noticed a similar effect when proposing features on OSS projects. Sometimes I throw out my idea
+before it gets posted. While writing how it could be implemented or considering the side effects I notice it's not
+feasible. All things you don't realize before you start typing it out!
 
 Hope this saves someone a few hours of googling and debugging!
