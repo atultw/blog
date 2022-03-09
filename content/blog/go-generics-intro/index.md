@@ -1,6 +1,6 @@
 ---
 title: Go generics by example
-date: "2022-03-8"
+date: "2022-03-08"
 tags: ["swift", "mobile"]
 ---
 
