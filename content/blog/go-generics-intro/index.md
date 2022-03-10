@@ -109,7 +109,11 @@ However, if you make SpecialInteger an *alias*, there's no need for the `~`:
 type SpecialInteger = int
 ```
 
+## Built-in constraints
 
+Go has `any` now, which is like `interface{}`.
+
+There's some more here: [https://pkg.go.dev/golang.org/x/exp/constraints](https://pkg.go.dev/golang.org/x/exp/constraints#Integer)
 
 ## Map-reduce?
 
