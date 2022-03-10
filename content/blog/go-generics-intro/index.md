@@ -4,18 +4,19 @@ date: "2022-03-08"
 tags: ["swift", "mobile"]
 ---
 
-
 In this article we'll explore some common generics use cases, implemented in Go.
 
 ## Requirements
 
-First download the latest Go 1.18, at the time of writing rc1. This command works if you already have go installed. Otherwise find it online at [golang.org](https://golang.org). 
+You can try the latest go development build at [Go Playground](https://go.dev/play/?v=gotip)
+
+Alternatively, download the latest Go 1.18. This command works if you already have go installed. Otherwise find it online at [golang.org](https://golang.org). 
 
 ```
 go install golang.org/dl/go1.18rc1@latest
 ```
 
-So that you can use the new bin, Add the following line to your `.zshrc`/`.bashrc` in the home directory or whatever terminal you use. 
+So that you can use the new version, Add the following line to your `.zshrc`/`.bashrc` or whatever terminal you use. 
 ```
 export PATH=$PATH:$HOME/go/bin
 ```
