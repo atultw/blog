@@ -25,7 +25,7 @@ Then run `go1.18rc1 download`.
 
 ## Example use case: Number addition
 
-A function to take an array of numbers and sum them.
+A function to take a slice of numbers and sum them.
 
 ### Go 1.18
 
@@ -39,20 +39,20 @@ func Sum[N int64 | float64](numbers []N) N {
 }
 ```
 
-Go has type inference so you don't have to explicitly specify the number type parameter:
-```go
-func main() {
-    sum := Sum([]int64{1,2,3,4,5,6,7,8,9,10})
-    println(sum)
-}
-```
-
 Here's the equivalent in Swift for reference:
 ```swift
 func sum<T: Numeric>(numbers: [T]) -> T {
     var total: T = 0
     numbers.map{total+=$0} // more on this later!
     return total
+}
+```
+
+Go has type inference so you don't have to explicitly specify the number type parameter when calling:
+```go
+func main() {
+    sum := Sum([]int64{1,2,3,4,5,6,7,8,9,10})
+    println(sum)
 }
 ```
 
@@ -72,13 +72,28 @@ type Numeric interface {
 }
 ```
 
-Notice how it's just a normal constraint put inside an interface. What if you declare a typedef for int and use it in the function?
+We can now rewrite the function signature as:
+```go
+func Sum[N Numeric](numbers []N) N
+```
+
+Try declaring a typedef and making the slice of type `SpecialInteger`
 
 ```go
 type SpecialInteger int
 ```
+... in main
+```go
+sum := Sum([]SpecialInteger{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+```
 
-It won't compile. Go has the `~` operator to allow derived types like `SpecialInteger` to satisfy a constraint:
+It won't compile:
+
+```
+SpecialInteger does not implement Numeric (possibly missing ~ for int in constraint Numeric)
+```
+
+ Go has the `~` operator to allow derived types like `SpecialInteger` to satisfy a constraint:
 
 ```go
 type Numeric interface {
@@ -88,19 +103,22 @@ type Numeric interface {
 }
 ```
 
-We can now rewrite the function signature as:
+However, if you make SpecialInteger an *alias*, there's no need for the `~`:
+
 ```go
-func Sum[N Numeric](numbers []N) N
+type SpecialInteger = int
 ```
+
+
 
 ## Map-reduce?
 
 A popular way of transforming data in collections is to apply functions to each element using `map`. Looking back at our `Sum` example, notice how we set up a for-loop in Go, but used `.map{}` in Swift. The latter is more concise, and I use it a lot in my Swift projects. I tried to implement the same thing in Go.
 
-Generics make this possible in Go, but my excitement was quickly dampened. I tried writing a method for `[]T` as the receiver which didn't work because you can only add methods to types in the package. So I made a generic type definition:
+Generics make this possible in Go, but my enthusiasm was quickly dampened. I tried writing a method with `[]T` as the receiver. This didn't work because you can only add methods to types in the package. So I made a generic type definition:
 
 ```go
-type Slice[T] = []T
+type Slice[T] = []T // this works!
 ```
 
 Note that this is not a type alias. Go would give the error: `generic type cannot be alias`. This brings us to the first issue: now anyone who wants to use our `Map` method must make the slice of type `Slice` and not the standard `[]Something`. 
@@ -151,7 +169,7 @@ func main() {
 }
 ```
 
-It's not that much more complicated, so the `Map` function doesn't seem worth it to me. 
+The old way isn't that much more complicated, so the `Map` function doesn't seem worth it to me. 
 
 ## Application: Database
 [https://go.dev/play/p/Di0BJlg2NHf?v=gotip](https://go.dev/play/p/Di0BJlg2NHf?v=gotip)
@@ -194,4 +212,4 @@ Notice that we specified the type parameter since there's no way for Go to infer
 
 ## Final thoughts
 
-I'm looking forward to the release of Go generics. I think it'll save a lot of boilerplate code, especially since Go doesn't support overloading. And, in typical Go fashion, we may have to adapt and use different patterns than we're used to from other languages (like error handling, and the differences I mentioned above) but I'm sure there's a reason for everything.
+I'm looking forward to the release of Go generics. I think it'll save a lot of boilerplate code, especially since Go doesn't support overloading. And, in typical Go fashion, we may have to adapt and use different patterns than we're used to from other languages (like error handling, and the differences I mentioned above), but I'm sure there's a reason for everything. Happy coding!
