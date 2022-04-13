@@ -1,5 +1,5 @@
 ---
-title: Xcode debugger goodies
+title: "Cool features of lldb's \"po\": Better debugging"
 date: "2022-04-12"
 tags: ["swift"]
 colorOne: rgba(239, 82, 55, 1)

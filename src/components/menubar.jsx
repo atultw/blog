@@ -38,7 +38,7 @@ export class MenuBar extends React.Component {
                 <div style={{ marginLeft: "auto", display: "flex", alignItems: "flex-end" }}>
                     <span className={Styles.menuItem}><Link to="/tags/swift">Swift</Link></span>
                     <span className={Styles.menuItem}><Link to="/tags/go">Go</Link></span>
-                    <span className={Styles.menuItem}><Link to="/tags/other">Other</Link></span>
+                    <span className={Styles.menuItem}><a href="https://github.com/atultw">GitHub</a></span>
                     <span className={Styles.menuItem}>
                         <span id={Styles.uiModeToggle} onClick={() => this.themeDark(this.state.selectorClass === Styles.selectorLight)}>
                             <div id={Styles.uiModeSelector} className={this.state.selectorClass}></div>
