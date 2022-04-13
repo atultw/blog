@@ -36,7 +36,7 @@ export class ArticlePreview extends Component {
                         </h2>
                         <small>{this.props.post.frontmatter.date}</small><br />
                     </div>
-                    <div className={Styles.articlePreviewContent} style={{ background: this.state.hover ? `${this.props.post.frontmatter.colorOne}` : "none", color: this.state.hover ? "white" : "black" }}>
+                    <div className={Styles.articlePreviewContent} style={{ background: this.state.hover ? `${this.props.post.frontmatter.colorOne}` : "none", color: this.state.hover ? "white" : "var(--foreground-color)" }}>
 
                         <div
                             // dangerouslySetInnerHTML={{
