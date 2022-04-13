@@ -126,6 +126,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      colorOne: String
+      image: File @fileByRelativePath
     }
 
     type Fields {

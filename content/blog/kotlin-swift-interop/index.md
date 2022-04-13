@@ -2,6 +2,7 @@
 title: Kotlin Multiplatform with Swift
 date: "2021-10-12"
 tags: ["swift", "mobile"]
+colorOne: rgba(125,69,250,1)
 ---
 
 This week I was looking at some options for sharing code between mobile platforms. In this article I'll describe how I compiled a Kotlin multiplatform project as an iOS library linked to a real Swift project. 

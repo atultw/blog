@@ -2,6 +2,7 @@
 title: No Dumb Questions 
 date: "2022-02-18"
 tags: ["productivity"]
+colorOne: "#ffd000"
 ---
 
 **tl;dr type out your SO question even if you won't post it. You may notice something you had overlooked that solves

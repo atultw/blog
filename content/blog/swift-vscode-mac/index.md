@@ -2,7 +2,13 @@
 title: Full-featured Swift in Visual Studio Code
 date: "2021-10-20"
 tags: ["swift"]
+colorOne: rgba(239, 82, 55, 1)
 ---
+
+# Update
+Swift server side work group now have an official plugin published as a VSCode extension. No need to build it yourself.
+
+# DIY
 
 I'm starting a server-side Swift project, so I wanted to see how Swift works without Xcode. 
 

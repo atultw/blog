@@ -1,7 +1,8 @@
 ---
 title: Go generics by example
 date: "2022-03-08"
-tags: ["swift", "mobile"]
+tags: ["go"]
+colorOne: rgb(121,212,253)
 ---
 
 In this article we'll explore some common generics use cases, implemented in Go.

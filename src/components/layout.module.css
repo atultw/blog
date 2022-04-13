@@ -3,15 +3,19 @@
 
 .theme-light {
   --foreground-color: rgb(20, 20, 20);
-  --background-color: rgb(250, 235, 215);
+  --background-color: rgb(255, 245, 232);
   --accent-1-color: rgb(0, 102, 255);
   --accent-2-color: rgb(255, 174, 0);
+  --code-background-color: #e2e2e2;
+  --code-foreground-color: black;
 }
 .theme-dark {
   --foreground-color: rgb(255, 255, 255);
-  --background-color: rgb(36, 36, 36);
+  --background-color: rgb(41, 41, 41);
   --accent-1-color: rgb(0, 153, 255);
   --accent-2-color: rgb(0, 255, 136);
+  --code-background-color: rgba(16, 18, 20, 0.849);
+  --code-foreground-color: white;
 }
 body,
 html {
@@ -26,8 +30,7 @@ html {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(min(600px, 1vw), 600px) minmax(0,
-          1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(min(700px, 1vw), 700px) minmax(0,1fr);
   grid-template-rows: minmax(50px, 100px) 1fr;
   min-height: 100vh;
 }
@@ -43,6 +46,33 @@ pre[class*="language-"] {
   font-family: "JetBrains Mono", monospace;
   border-radius: 10px;
 }
+
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: rgba(29, 59, 83, 0.99);
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: rgba(29, 59, 83, 0.99);
+}
+
+pre[class*="language-"] {
+  color: white;
+  background: rgba(9, 19, 27, 0.99);
+}
+
+:not(pre) > code[class*="language-"] {
+    color: var(--code-foreground-color);
+    background: var(--code-background-color);
+}
+
 p {
   font-size: 12pt;
   line-height: 1.5rem;

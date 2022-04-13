@@ -45,7 +45,10 @@ const Bio = () => {
         />
       </div>
       <div style={{ gridColumnStart: 2 }}>
-        <p style={{ padding: "10px" }}>{author?.summary}</p>
+        <p style={{ padding: "10px" }}>
+          {author?.summary}
+          <a href="https://github.com/atultw">@atultw</a>
+        </p>
       </div>
     </div>
   )

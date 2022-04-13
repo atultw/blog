@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `atultw`,
     author: {
-      summary: `I'm Atulya, a full-stack hobby programmer currently writing Swift for iOS and Go on the backend. I'm 14. Find me on github @atultw`,
+      summary: `👋 I'm Atulya, a full-stack hobby programmer. I'm 15. Here I write about interesting stuff I come across. Find me on github`,
     },
     description: `Writing about cool coding stuff I come across`,
     siteUrl: `https://atulya.me`,
